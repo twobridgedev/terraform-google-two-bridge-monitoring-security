@@ -1,3 +1,7 @@
+variable "project_id_svpc_host" {
+	type=string
+	description="Project id svpc host"
+}
 variable "security_policy_name" {
 	type=string
 	description="Security policy name"

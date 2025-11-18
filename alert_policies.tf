@@ -1,4 +1,5 @@
 resource "google_monitoring_alert_policy" "security_policy_requests_blocked" {
+	project=var.project_id_svpc_host
 	display_name="Requests blocked by security policy"
 	combiner="OR"
 	enabled=true
@@ -18,11 +19,12 @@ resource "google_monitoring_alert_policy" "security_policy_requests_blocked" {
 			}
 		}
 	}
-	notification_channels = [
+	notification_channels=[
 		for channel in google_monitoring_notification_channel.channels : channel.name
 	]
 }
 resource "google_monitoring_alert_policy" "security_policy_previewed_requests_blocked" {
+	project=var.project_id_svpc_host
 	display_name="Previewed requests blocked by security policy"
 	combiner="OR"
 	enabled=true
@@ -42,11 +44,12 @@ resource "google_monitoring_alert_policy" "security_policy_previewed_requests_bl
 			}
 		}
 	}
-	notification_channels = [
+	notification_channels=[
 		for channel in google_monitoring_notification_channel.channels : channel.name
 	]
 }
 resource "google_monitoring_alert_policy" "requests_per_second_10" {
+	project=var.project_id_svpc_host
 	display_name="Requests per second 10"
 	combiner="OR"
 	enabled=true
@@ -66,11 +69,12 @@ resource "google_monitoring_alert_policy" "requests_per_second_10" {
 			}
 		}
 	}
-	notification_channels = [
+	notification_channels=[
 		for channel in google_monitoring_notification_channel.channels : channel.name
 	]
 }
 resource "google_monitoring_alert_policy" "requests_per_second_50" {
+	project=var.project_id_svpc_host
 	display_name="Requests per second 50"
 	combiner="OR"
 	enabled=true
@@ -90,11 +94,12 @@ resource "google_monitoring_alert_policy" "requests_per_second_50" {
 			}
 		}
 	}
-	notification_channels = [
+	notification_channels=[
 		for channel in google_monitoring_notification_channel.channels : channel.name
 	]
 }
 resource "google_monitoring_alert_policy" "requests_per_second_100" {
+	project=var.project_id_svpc_host
 	display_name="Requests per second 100"
 	combiner="OR"
 	enabled=true
@@ -114,7 +119,7 @@ resource "google_monitoring_alert_policy" "requests_per_second_100" {
 			}
 		}
 	}
-	notification_channels = [
+	notification_channels=[
 		for channel in google_monitoring_notification_channel.channels : channel.name
 	]
 }
